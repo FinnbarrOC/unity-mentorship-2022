@@ -513,3 +513,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 1733700380}
   cameraTransform: {fileID: 963194228}
+  lookSensitivity: 100
+  moveSensitivity: 10

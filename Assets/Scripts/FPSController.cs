@@ -7,6 +7,7 @@ public class FPSController : MonoBehaviour
     [SerializeField] Transform playerTransform;
     [SerializeField] Transform cameraTransform;
 
+    [SerializeField] float lookSensitivity = 1.0f;
     [SerializeField] float moveSensitivity = 1.0f;
     
     // Start is called before the first frame update
@@ -22,8 +23,8 @@ public class FPSController : MonoBehaviour
         float xDelta = Input.GetAxis("Mouse X");  // moving mouse left-right
         float yDelta = Input.GetAxis("Mouse Y");  // moving mouse up-down
         
-        playerTransform.Rotate(Vector3.up, xDelta);
-        cameraTransform.Rotate(Vector3.right, -yDelta);
+        playerTransform.Rotate(Vector3.up, lookSensitivity * xDelta * Time.deltaTime);
+        cameraTransform.Rotate(Vector3.right, lookSensitivity * -yDelta * Time.deltaTime);
         
         
         
@@ -32,8 +33,8 @@ public class FPSController : MonoBehaviour
         float zPosDelta = Input.GetAxis("Vertical");
 
         Vector3 playerPos = playerTransform.position;
-        playerPos += moveSensitivity * xPosDelta * playerTransform.right;
-        playerPos += moveSensitivity * zPosDelta * playerTransform.forward;
+        playerPos += moveSensitivity * xPosDelta * playerTransform.right * Time.deltaTime;
+        playerPos += moveSensitivity * zPosDelta * playerTransform.forward * Time.deltaTime;
         playerTransform.position = playerPos;
     }
 }
