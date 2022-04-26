@@ -8,6 +8,7 @@ public class FPSController : MonoBehaviour
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private float moveSensitivity = 1.0f;
     [SerializeField] private float lookSensitivity = 1.0f;
+    [SerializeField] private float sprintMultiplier = 2.0f;
     
     // Start is called before the first frame update
     void Start()
@@ -28,9 +29,17 @@ public class FPSController : MonoBehaviour
         float xPosDelta = Input.GetAxis("Horizontal");
         float zPosDelta = Input.GetAxis("Vertical");
 
+        bool isSprinting = Input.GetKey(KeyCode.LeftShift);
+        float runSpeed = 1.0f;
+
+        if (isSprinting)
+        {
+            runSpeed = sprintMultiplier;
+        }
+
         Vector3 playerPos = playerTransform.position;
-        playerPos += moveSensitivity * xPosDelta * playerTransform.right * Time.deltaTime;
-        playerPos += moveSensitivity * zPosDelta * playerTransform.forward * Time.deltaTime;
+        playerPos += moveSensitivity * xPosDelta * runSpeed * playerTransform.right * Time.deltaTime;
+        playerPos += moveSensitivity * zPosDelta *  runSpeed * playerTransform.forward * Time.deltaTime;
         playerTransform.position = playerPos;
 
         
