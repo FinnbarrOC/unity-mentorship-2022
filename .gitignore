@@ -21,6 +21,10 @@
 
 # Visual Studio cache directory
 .vs/
+.vsconfig
+
+# Rider cache directory
+.idea/
 
 # Gradle cache directory
 .gradle/
@@ -53,8 +57,26 @@ sysinfo.txt
 
 # Builds
 *.apk
-*.unitypackage
+*.unitypackage # these files are ignored by the default gitignore, but we want to keep them
 
 # Crashlytics generated file
 crashlytics-build.properties
 
+# Packed Addressables (per-platform, allow for being in a subfolder too)
+/[Aa]ssets/*/[Aa]ddressable[Aa]ssets[Dd]ata/Windows/
+/[Aa]ssets/*/[Aa]ddressable[Aa]ssets[Dd]ata/Windows.*
+/[Aa]ssets/*/[Aa]ddressable[Aa]ssets[Dd]ata/OSX/
+/[Aa]ssets/*/[Aa]ddressable[Aa]ssets[Dd]ata/OSX.*
+/[Aa]ssets/*/[Aa]ddressable[Aa]ssets[Dd]ata/Linux/
+/[Aa]ssets/*/[Aa]ddressable[Aa]ssets[Dd]ata/Linux.*
+/[Aa]ssets/*/[Aa]ddressable[Aa]ssets[Dd]ata/iOS/
+/[Aa]ssets/*/[Aa]ddressable[Aa]ssets[Dd]ata/iOS.*
+/[Aa]ssets/*/[Aa]ddressable[Aa]ssets[Dd]ata/Android/
+/[Aa]ssets/*/[Aa]ddressable[Aa]ssets[Dd]ata/Android.*
+/[Aa]ssets/*/[Aa]ddressable[Aa]ssets[Dd]ata/WebGL/
+/[Aa]ssets/*/[Aa]ddressable[Aa]ssets[Dd]ata/WebGL.*
+
+# UserSettings directory is per-user info
+/[Uu]serSettings/
+
+ProjectSettings/AndroidLogcatSettings.asset
